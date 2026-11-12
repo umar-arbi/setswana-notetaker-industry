@@ -1,0 +1,649 @@
+/* KwalaNotes — one-page marketing site */
+
+:root {
+  color-scheme: dark;
+
+  --bg: #282828;
+  --bg-alt: #2F2F2F;
+  --surface: #323232;
+
+  --text: #EDEDED;
+  --text-muted: #A3A3A3;
+  --heading: #FFFFFF;
+
+  --border: #424242;
+
+  --brand-bg: #121417;
+  --brand-border: #2A2D33;
+
+  --accent: #7FB3E0;
+  --accent-hover: #A9CCEB;
+  --decorative-accent: #4A90C8;
+
+  --button-bg: #2F6FA6;
+  --button-hover-bg: #285F8E;
+  --button-text: #FFFFFF;
+
+  --accent-contrast: #ffffff;
+  --focus: #A9CCEB;
+  --radius: 12px;
+  --max-width: 1080px;
+  --space: 1rem;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--text);
+  background: var(--bg);
+}
+
+img,
+svg {
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+a:hover {
+  color: var(--accent-hover);
+}
+
+a:focus-visible,
+button:focus-visible,
+summary:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  line-height: 1.25;
+  margin: 0 0 0.5em;
+  color: var(--heading);
+}
+
+h1 {
+  font-size: clamp(1.75rem, 5vw, 2.75rem);
+}
+
+h2 {
+  font-size: clamp(1.4rem, 3.5vw, 2rem);
+}
+
+h3 {
+  font-size: 1.15rem;
+}
+
+h4 {
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--text-muted);
+}
+
+p {
+  margin: 0 0 1em;
+}
+
+ul,
+ol {
+  margin: 0 0 1em;
+  padding-left: 1.25em;
+}
+
+.container {
+  width: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* Skip link */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  background: var(--button-bg);
+  color: var(--button-text);
+  padding: 0.5rem 1rem;
+  z-index: 100;
+}
+
+.skip-link:focus {
+  left: 1rem;
+  top: 1rem;
+}
+
+/* Header */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  border-bottom: 1px solid var(--brand-border);
+  background: var(--brand-bg);
+}
+
+.header-inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem 1rem;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+}
+
+.brand {
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--text);
+  text-decoration: none;
+}
+
+.brand:hover {
+  color: var(--accent);
+}
+
+.brand-logo {
+  display: block;
+  height: 32px;
+  width: auto;
+  content: url("assets/kwalanotes-logo-white.svg");
+}
+
+.nav-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 1rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-list a {
+  color: var(--accent);
+  text-decoration: none;
+  font-size: 0.95rem;
+}
+
+.nav-list a:hover {
+  color: var(--accent);
+  text-decoration: underline;
+}
+
+/* Hero */
+.hero {
+  padding: 3rem 0 2.5rem;
+  background: var(--bg);
+}
+
+.hero h1 {
+  max-width: 22ch;
+}
+
+.subline {
+  font-size: 1.1rem;
+  color: var(--text-muted);
+  max-width: 55ch;
+}
+
+.cta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin: 1.5rem 0 1rem;
+}
+
+.hero-note {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+/* Buttons */
+.button {
+  display: inline-block;
+  padding: 0.7rem 1.2rem;
+  border-radius: var(--radius);
+  font-weight: 600;
+  text-decoration: none;
+  text-align: center;
+  border: 2px solid transparent;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.button-primary {
+  background: var(--button-bg);
+  color: var(--button-text);
+}
+
+.button-primary:hover {
+  background: var(--button-hover-bg);
+  color: var(--button-text);
+}
+
+.button-secondary {
+  background: transparent;
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+.button-secondary:hover {
+  background: var(--button-bg);
+  border-color: var(--button-bg);
+  color: var(--button-text);
+}
+
+/* Sections */
+.section {
+  padding: 2.5rem 0;
+}
+
+.section-alt {
+  background: var(--bg-alt);
+}
+
+.section-intro {
+  color: var(--text-muted);
+  max-width: 55ch;
+}
+
+/* Steps */
+.steps {
+  list-style: none;
+  padding: 0;
+  margin: 1.5rem 0 0;
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 1fr;
+  counter-reset: step;
+}
+
+.step {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.25rem;
+  counter-increment: step;
+}
+
+.step h3::before {
+  content: counter(step) ". ";
+  color: var(--accent);
+}
+
+.step p {
+  margin: 0;
+  color: var(--text-muted);
+}
+
+/* Features */
+.features {
+  list-style: none;
+  padding: 0;
+  margin: 1.5rem 0 0;
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 1fr;
+}
+
+.feature {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.25rem;
+}
+
+.feature p {
+  margin: 0;
+  color: var(--text-muted);
+}
+
+/* Notes card */
+.notes-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.25rem;
+  margin-top: 1.5rem;
+}
+
+.notes-card-header {
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.notes-card-header h3 {
+  margin-bottom: 0.25rem;
+}
+
+.notes-meta {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+.notes-block {
+  margin-bottom: 1.25rem;
+}
+
+.notes-block:last-child {
+  margin-bottom: 0;
+}
+
+.notes-block p {
+  margin: 0;
+}
+
+.action-items {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.action-items li {
+  padding: 0.6rem 0;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.action-items li:last-child {
+  border-bottom: none;
+}
+
+.action-text {
+  font-weight: 500;
+}
+
+.action-meta {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+/* Pricing */
+.pricing-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  max-width: 420px;
+  text-align: center;
+}
+
+.price {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0 0 0.25rem;
+}
+
+.price-note {
+  color: var(--text-muted);
+  margin: 0 0 1rem;
+}
+
+/* Privacy */
+.privacy-list {
+  margin: 1rem 0 0;
+  padding-left: 1.25em;
+}
+
+.privacy-list li {
+  margin-bottom: 0.5rem;
+}
+
+/* FAQ */
+.faq {
+  margin-top: 1.5rem;
+  display: grid;
+  gap: 0.5rem;
+}
+
+.faq details {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 0.75rem 1rem;
+}
+
+.faq summary {
+  cursor: pointer;
+  font-weight: 600;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.faq summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq summary::after {
+  content: "+";
+  font-weight: 700;
+  color: var(--accent);
+  font-size: 1.25rem;
+  line-height: 1;
+}
+
+.faq details[open] summary::after {
+  content: "−";
+}
+
+.faq details p {
+  margin: 0.75rem 0 0;
+  color: var(--text-muted);
+}
+
+/* Download */
+.download-section {
+  text-align: center;
+}
+
+.download-section p {
+  max-width: 55ch;
+  margin-left: auto;
+  margin-right: auto;
+  color: var(--text-muted);
+}
+
+.download-note {
+  font-size: 0.85rem;
+  margin-top: 0.75rem;
+}
+
+/* Footer */
+.site-footer {
+  border-top: 1px solid var(--brand-border);
+  background: var(--brand-bg);
+  padding: 1.5rem 0;
+  font-size: 0.9rem;
+}
+
+.footer-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  align-items: flex-start;
+}
+
+.footer-brand {
+  font-weight: 700;
+  margin: 0;
+}
+
+.footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 1rem;
+}
+
+.footer-copy {
+  color: var(--text-muted);
+  margin: 0;
+}
+
+/* Responsive: two-column layouts from 640px up */
+@media (min-width: 640px) {
+  .steps {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .features {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .footer-inner {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .footer-copy {
+    flex-basis: 100%;
+  }
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+    animation: none !important;
+  }
+}
+
+/* Home page navigation and transcript example */
+html {
+  scroll-padding-top: 9rem;
+}
+
+.header-inner > nav {
+  margin-left: auto;
+}
+
+.nav-list {
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.nav-list .button-primary,
+.nav-list .button-primary:hover {
+  color: var(--button-text);
+}
+
+.header-download {
+  flex-shrink: 0;
+}
+
+.download-cta {
+  max-width: 55ch;
+}
+
+.cta-row {
+  align-items: flex-start;
+}
+
+.download-note,
+.example-caption {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.download-note {
+  margin: 0.5rem 0 0;
+}
+
+.sample-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 1rem;
+  margin: 1.5rem 0 0.75rem;
+}
+
+.sample-grid .notes-card {
+  margin-top: 0;
+  min-width: 0;
+  overflow-wrap: anywhere;
+  border-top: 3px solid var(--decorative-accent);
+}
+
+@media (min-width: 640px) {
+  .sample-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* Keep the example alongside the introduction on laptop screens. */
+.hero-layout {
+  display: grid;
+  gap: 2rem;
+}
+
+.hero-copy,
+.hero-example {
+  min-width: 0;
+}
+
+.language-switch {
+  white-space: nowrap;
+}
+
+@media (min-width: 901px) {
+  .hero-layout {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    align-items: start;
+    gap: 2.5rem;
+  }
+
+  .hero-example h2 {
+    font-size: 1.5rem;
+  }
+
+  .hero-example .sample-grid {
+    grid-template-columns: minmax(0, 1fr);
+    margin-top: 1rem;
+  }
+
+  .hero-example .notes-card {
+    padding: 1rem;
+    font-size: 0.9rem;
+  }
+
+  .hero-example .notes-card p:last-child {
+    margin-bottom: 0;
+  }
+
+  .hero-example .notes-block {
+    margin-bottom: 0.75rem;
+  }
+}
