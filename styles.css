@@ -647,3 +647,20 @@ html {
     margin-bottom: 0.75rem;
   }
 }
+
+/* App screenshot in the hero */
+.hero-app-shot {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  border: 1px solid #424242;
+  border-radius: 12px;
+  margin: 0 0 1.5rem;
+}
+
+/* "Email yourself the link" under download buttons */
+.phone-link {
+  font-size: 0.85rem;
+  margin: 0.5rem 0 0;
+}
