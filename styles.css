@@ -234,6 +234,10 @@ ol {
   transition: background-color 0.15s ease, color 0.15s ease;
 }
 
+.button[hidden] {
+  display: none;
+}
+
 .button-primary {
   background: var(--button-bg);
   color: var(--button-text);
