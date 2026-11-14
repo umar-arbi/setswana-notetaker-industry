@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tester feedback — KwalaNotes</title>
+  <meta name="description" content="Share anonymous feedback about testing KwalaNotes.">
+  <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#4A90C8">
+  <link rel="canonical" href="https://kwalanotes.com/feedback/">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/styles.css">
+  <style>
+    /* Feedback page: one centred column, compact rating scales and choice chips.
+       Only colours already defined in /styles.css are used. */
+
+    /* 1. Centre the intro + form in a single readable column */
+    main .container {
+      max-width: 640px;
+      margin: 0 auto;
+    }
+
+    #feedback-form {
+      width: 100%;
+      max-width: none;
+      gap: 28px; /* 28px between questions */
+    }
+
+    /* 4. Fieldsets: no heavy boxes, heading-weight legends */
+    #feedback-form fieldset {
+      margin: 0;
+      padding: 0;
+      min-width: 0;
+      border: 0;
+    }
+
+    #feedback-form legend {
+      margin: 0;
+      padding: 0;
+      font-weight: 700;
+      color: var(--heading);
+    }
+
+    /* --- 2. Rating scales: one row of equal pill buttons --- */
+    #feedback-form .scale {
+      position: relative;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(2.5rem, 1fr));
+      gap: 0.5rem;
+      padding-bottom: 1.5rem; /* room for the hint under the row */
+    }
+
+    /* legend must span the whole row, otherwise it sits in one pill cell */
+    #feedback-form .scale > legend {
+      grid-column: 1 / -1;
+    }
+
+    #feedback-form .scale > label,
+    #feedback-form .chips > label {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 40px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      background: var(--surface);
+      color: var(--text);
+      font-size: 0.9rem;
+      font-weight: 600;
+      line-height: 1;
+      cursor: pointer;
+      transition: background-color 0.15s ease, border-color 0.15s ease;
+    }
+
+    #feedback-form .scale > label {
+      padding: 0 0.25rem;
+    }
+
+    #feedback-form .scale > label:hover,
+    #feedback-form .chips > label:hover {
+      border-color: var(--accent);
+    }
+
+    /* Native radios stay in the page (focusable, announced) but are painted
+       invisibly on top of their pill. */
+    #feedback-form .scale input[type="radio"],
+    #feedback-form .chips input[type="radio"] {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      border: 0;
+      opacity: 0;
+      cursor: pointer;
+    }
+
+    /* Checked state: fill with the accent colour.
+       (Checkboxes keep their native tick, so only radios fill the chip.) */
+    #feedback-form .scale > label:has(input:checked),
+    #feedback-form .chips > label:has(input[type="radio"]:checked) {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: var(--brand-bg);
+    }
+
+    /* Keyboard focus ring, drawn on the pill instead of the hidden input */
+    #feedback-form .scale > label:has(input:focus-visible),
+    #feedback-form .chips > label:has(input:focus-visible) {
+      outline: 2px solid var(--focus);
+      outline-offset: 2px;
+    }
+
+    /* Hint under the row, flush to both ends */
+    #feedback-form .scale::before,
+    #feedback-form .scale::after {
+      position: absolute;
+      bottom: 0;
+      font-size: 0.8rem;
+      font-weight: 400;
+      line-height: 1.2;
+      color: var(--text-muted);
+    }
+
+    #feedback-form .scale::before { content: "1 = poor"; left: 0; }
+    #feedback-form .scale::after  { content: "5 = excellent"; right: 0; }
+
+    /* Q11 uses the 0–10 wording */
+    #feedback-form .scale-nps::before { content: "0 = not likely"; }
+    #feedback-form .scale-nps::after  { content: "10 = very likely"; }
+
+    /* Q4 already ships a hint paragraph (its aria-describedby target);
+       keep it for screen readers only so it does not double up. */
+    #feedback-form #overall-hint {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      margin: -1px;
+      padding: 0;
+      overflow: hidden;
+      clip: rect(0 0 0 0);
+      clip-path: inset(50%);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    /* --- 3. Choice questions: compact chips in a wrapping row --- */
+    #feedback-form .chips {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    #feedback-form .chips > legend {
+      flex: 0 0 100%;
+    }
+
+    #feedback-form .chips > label {
+      gap: 0.45rem;
+      padding: 0 0.9rem;
+    }
+
+    #feedback-form .chips input[type="checkbox"] {
+      flex: 0 0 auto;
+      width: 1.1rem;
+      height: 1.1rem;
+      margin: 0;
+      padding: 0;
+      accent-color: var(--accent);
+    }
+
+    /* --- 5. Submit button, with the status line below it --- */
+    #feedback-form button[type="submit"] {
+      order: 1;
+      justify-self: start;
+    }
+
+    #feedback-form #status {
+      order: 2;
+      margin-top: -0.75rem; /* tighten the 28px question gap */
+    }
+
+    @media (max-width: 599px) {
+      #feedback-form button[type="submit"] {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="/"><img src="/assets/kwalanotes-logo-ink.svg" alt="KwalaNotes" class="brand-logo"></a>
+      <nav aria-label="Primary"><ul class="nav-list">
+        <li><a href="/">Home</a></li>
+        <li><a href="/help.html">Help</a></li>
+      </ul></nav>
+    </div>
+  </header>
+  <main id="main">
+    <section class="section">
+      <div class="container">
+        <h1>Tester feedback</h1>
+        <p class="section-intro">Thank you for testing KwalaNotes. This form is anonymous: it does not ask for your name or email and we do not collect who sent it. Please do not paste confidential meeting content. Takes about 3 minutes.</p>
+        <p>* Required questions</p>
+        <form id="feedback-form" class="contact-form" method="post" novalidate>
+          <div class="form-field">
+            <label for="app-version">1. App version</label>
+            <input id="app-version" name="app_version" type="text" maxlength="20" placeholder="e.g. 0.1.17">
+          </div>
+          <fieldset class="form-field chips">
+            <legend>2. Type of meeting*</legend>
+            <label for="meeting_types-0"><input id="meeting_types-0" name="meeting_types" type="checkbox" value="Teams"> Teams</label>
+            <label for="meeting_types-1"><input id="meeting_types-1" name="meeting_types" type="checkbox" value="Zoom"> Zoom</label>
+            <label for="meeting_types-2"><input id="meeting_types-2" name="meeting_types" type="checkbox" value="Google Meet"> Google Meet</label>
+            <label for="meeting_types-3"><input id="meeting_types-3" name="meeting_types" type="checkbox" value="WhatsApp call"> WhatsApp call</label>
+            <label for="meeting_types-4"><input id="meeting_types-4" name="meeting_types" type="checkbox" value="In person"> In person</label>
+            <label for="meeting_types-5"><input id="meeting_types-5" name="meeting_types" type="checkbox" value="Imported file"> Imported file</label>
+          </fieldset>
+          <fieldset class="form-field chips">
+            <legend>3. How many meetings did you record?*</legend>
+            <label for="meeting_count-0"><input id="meeting_count-0" name="meeting_count" type="radio" value="1" required> 1</label>
+            <label for="meeting_count-1"><input id="meeting_count-1" name="meeting_count" type="radio" value="2–5" required> 2–5</label>
+            <label for="meeting_count-2"><input id="meeting_count-2" name="meeting_count" type="radio" value="6 or more" required> 6 or more</label>
+          </fieldset>
+          <fieldset class="form-field scale" aria-describedby="overall-hint">
+            <legend>4. Overall, how good is KwalaNotes?*</legend>
+            <p id="overall-hint" class="form-fallback">1 = poor; 5 = excellent</p>
+            <label for="overall-0"><input id="overall-0" name="overall" type="radio" value="1" required> 1</label>
+            <label for="overall-1"><input id="overall-1" name="overall" type="radio" value="2" required> 2</label>
+            <label for="overall-2"><input id="overall-2" name="overall" type="radio" value="3" required> 3</label>
+            <label for="overall-3"><input id="overall-3" name="overall" type="radio" value="4" required> 4</label>
+            <label for="overall-4"><input id="overall-4" name="overall" type="radio" value="5" required> 5</label>
+          </fieldset>
+          <fieldset class="form-field scale">
+            <legend>5. How accurate was the transcript for mixed Setswana and English?*</legend>
+            <label for="transcript-0"><input id="transcript-0" name="transcript" type="radio" value="1" required> 1</label>
+            <label for="transcript-1"><input id="transcript-1" name="transcript" type="radio" value="2" required> 2</label>
+            <label for="transcript-2"><input id="transcript-2" name="transcript" type="radio" value="3" required> 3</label>
+            <label for="transcript-3"><input id="transcript-3" name="transcript" type="radio" value="4" required> 4</label>
+            <label for="transcript-4"><input id="transcript-4" name="transcript" type="radio" value="5" required> 5</label>
+          </fieldset>
+          <fieldset class="form-field scale">
+            <legend>6. How useful were the notes?*</legend>
+            <label for="notes-0"><input id="notes-0" name="notes" type="radio" value="1" required> 1</label>
+            <label for="notes-1"><input id="notes-1" name="notes" type="radio" value="2" required> 2</label>
+            <label for="notes-2"><input id="notes-2" name="notes" type="radio" value="3" required> 3</label>
+            <label for="notes-3"><input id="notes-3" name="notes" type="radio" value="4" required> 4</label>
+            <label for="notes-4"><input id="notes-4" name="notes" type="radio" value="5" required> 5</label>
+          </fieldset>
+          <fieldset class="form-field chips">
+            <legend>7. Were the speakers labelled correctly?</legend>
+            <label for="speakers-0"><input id="speakers-0" name="speakers" type="radio" value="Yes"> Yes</label>
+            <label for="speakers-1"><input id="speakers-1" name="speakers" type="radio" value="Mostly"> Mostly</label>
+            <label for="speakers-2"><input id="speakers-2" name="speakers" type="radio" value="No"> No</label>
+            <label for="speakers-3"><input id="speakers-3" name="speakers" type="radio" value="Not sure"> Not sure</label>
+          </fieldset>
+          <fieldset class="form-field scale">
+            <legend>8. How easy was the app to use?*</legend>
+            <label for="ease-0"><input id="ease-0" name="ease" type="radio" value="1" required> 1</label>
+            <label for="ease-1"><input id="ease-1" name="ease" type="radio" value="2" required> 2</label>
+            <label for="ease-2"><input id="ease-2" name="ease" type="radio" value="3" required> 3</label>
+            <label for="ease-3"><input id="ease-3" name="ease" type="radio" value="4" required> 4</label>
+            <label for="ease-4"><input id="ease-4" name="ease" type="radio" value="5" required> 5</label>
+          </fieldset>
+          <div class="form-field">
+            <label for="problems">9. What went wrong or was confusing?</label>
+            <textarea id="problems" name="problems" rows="4" maxlength="400" aria-describedby="problems-hint"></textarea>
+            <p id="problems-hint" class="form-fallback">Up to 400 characters.</p>
+          </div>
+          <div class="form-field">
+            <label for="missing">10. What is missing that you would need?</label>
+            <textarea id="missing" name="missing" rows="4" maxlength="400" aria-describedby="missing-hint"></textarea>
+            <p id="missing-hint" class="form-fallback">Up to 400 characters.</p>
+          </div>
+          <fieldset class="form-field scale scale-nps">
+            <legend>11. How likely are you to recommend KwalaNotes to a colleague?</legend>
+            <label for="recommend-0"><input id="recommend-0" name="recommend" type="radio" value="0"> 0</label>
+            <label for="recommend-1"><input id="recommend-1" name="recommend" type="radio" value="1"> 1</label>
+            <label for="recommend-2"><input id="recommend-2" name="recommend" type="radio" value="2"> 2</label>
+            <label for="recommend-3"><input id="recommend-3" name="recommend" type="radio" value="3"> 3</label>
+            <label for="recommend-4"><input id="recommend-4" name="recommend" type="radio" value="4"> 4</label>
+            <label for="recommend-5"><input id="recommend-5" name="recommend" type="radio" value="5"> 5</label>
+            <label for="recommend-6"><input id="recommend-6" name="recommend" type="radio" value="6"> 6</label>
+            <label for="recommend-7"><input id="recommend-7" name="recommend" type="radio" value="7"> 7</label>
+            <label for="recommend-8"><input id="recommend-8" name="recommend" type="radio" value="8"> 8</label>
+            <label for="recommend-9"><input id="recommend-9" name="recommend" type="radio" value="9"> 9</label>
+            <label for="recommend-10"><input id="recommend-10" name="recommend" type="radio" value="10"> 10</label>
+          </fieldset>
+          <div class="form-field">
+            <label for="anything_else">12. Anything else?</label>
+            <textarea id="anything_else" name="anything_else" rows="4" maxlength="300" aria-describedby="anything_else-hint"></textarea>
+            <p id="anything_else-hint" class="form-fallback">Up to 300 characters.</p>
+          </div>
+          <div class="visually-hidden" aria-hidden="true">
+            <label for="website">Website</label>
+            <input id="website" name="website" type="text" tabindex="-1" autocomplete="off">
+          </div>
+          <p id="status" class="form-status" role="status"></p>
+          <button class="button button-primary" type="submit">Send feedback</button>
+        </form>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <nav aria-label="Footer"><ul class="footer-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/privacy.html">Privacy</a></li>
+        <li><a href="/terms.html">Terms</a></li>
+        <li><a href="/help.html">Help</a></li>
+      </ul></nav>
+    </div>
+  </footer>
+  <script src="/feedback.js" defer></script>
+</body>
+</html>
