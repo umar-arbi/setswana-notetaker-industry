@@ -10,201 +10,14 @@
   <link rel="canonical" href="https://kwalanotes.com/feedback/">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="/styles.css">
-  <style>
-    /* Feedback page: one centred column, compact rating scales and choice chips.
-       Only colours already defined in /styles.css are used. */
-
-    /* 1. Centre the intro + form in a single readable column */
-    main .container {
-      max-width: 640px;
-      margin: 0 auto;
-    }
-
-    #feedback-form {
-      width: 100%;
-      max-width: none;
-      gap: 28px; /* 28px between questions */
-    }
-
-    /* 4. Fieldsets: no heavy boxes, heading-weight legends */
-    #feedback-form fieldset {
-      margin: 0;
-      padding: 0;
-      min-width: 0;
-      border: 0;
-    }
-
-    #feedback-form legend {
-      margin: 0;
-      padding: 0;
-      font-weight: 700;
-      color: var(--heading);
-    }
-
-    /* --- 2. Rating scales: one row of equal pill buttons --- */
-    #feedback-form .scale {
-      position: relative;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(2.5rem, 1fr));
-      gap: 0.5rem;
-      padding-bottom: 1.5rem; /* room for the hint under the row */
-    }
-
-    /* legend must span the whole row, otherwise it sits in one pill cell */
-    #feedback-form .scale > legend {
-      grid-column: 1 / -1;
-    }
-
-    #feedback-form .scale > label,
-    #feedback-form .chips > label {
-      position: relative;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 40px;
-      border: 1px solid var(--border);
-      border-radius: 999px;
-      background: var(--surface);
-      color: var(--text);
-      font-size: 0.9rem;
-      font-weight: 600;
-      line-height: 1;
-      cursor: pointer;
-      transition: background-color 0.15s ease, border-color 0.15s ease;
-    }
-
-    #feedback-form .scale > label {
-      padding: 0 0.25rem;
-    }
-
-    #feedback-form .scale > label:hover,
-    #feedback-form .chips > label:hover {
-      border-color: var(--accent);
-    }
-
-    /* Native radios stay in the page (focusable, announced) but are painted
-       invisibly on top of their pill. */
-    #feedback-form .scale input[type="radio"],
-    #feedback-form .chips input[type="radio"] {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      margin: 0;
-      padding: 0;
-      border: 0;
-      opacity: 0;
-      cursor: pointer;
-    }
-
-    /* Checked state: fill with the accent colour.
-       (Checkboxes keep their native tick, so only radios fill the chip.) */
-    #feedback-form .scale > label:has(input:checked),
-    #feedback-form .chips > label:has(input[type="radio"]:checked) {
-      background: var(--accent);
-      border-color: var(--accent);
-      color: var(--brand-bg);
-    }
-
-    /* Keyboard focus ring, drawn on the pill instead of the hidden input */
-    #feedback-form .scale > label:has(input:focus-visible),
-    #feedback-form .chips > label:has(input:focus-visible) {
-      outline: 2px solid var(--focus);
-      outline-offset: 2px;
-    }
-
-    /* Hint under the row, flush to both ends */
-    #feedback-form .scale::before,
-    #feedback-form .scale::after {
-      position: absolute;
-      bottom: 0;
-      font-size: 0.8rem;
-      font-weight: 400;
-      line-height: 1.2;
-      color: var(--text-muted);
-    }
-
-    #feedback-form .scale::before { content: "1 = poor"; left: 0; }
-    #feedback-form .scale::after  { content: "5 = excellent"; right: 0; }
-
-    /* Q11 uses the 0–10 wording */
-    #feedback-form .scale-nps::before { content: "0 = not likely"; }
-    #feedback-form .scale-nps::after  { content: "10 = very likely"; }
-
-    /* Q4 already ships a hint paragraph (its aria-describedby target);
-       keep it for screen readers only so it does not double up. */
-    #feedback-form #overall-hint {
-      position: absolute;
-      width: 1px;
-      height: 1px;
-      margin: -1px;
-      padding: 0;
-      overflow: hidden;
-      clip: rect(0 0 0 0);
-      clip-path: inset(50%);
-      white-space: nowrap;
-      border: 0;
-    }
-
-    /* --- 3. Choice questions: compact chips in a wrapping row --- */
-    #feedback-form .chips {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: 0.5rem;
-    }
-
-    #feedback-form .chips > legend {
-      flex: 0 0 100%;
-    }
-
-    #feedback-form .chips > label {
-      gap: 0.45rem;
-      padding: 0 0.9rem;
-    }
-
-    #feedback-form .chips input[type="checkbox"] {
-      flex: 0 0 auto;
-      width: 1.1rem;
-      height: 1.1rem;
-      margin: 0;
-      padding: 0;
-      accent-color: var(--accent);
-    }
-
-    /* --- 5. Submit button, with the status line below it --- */
-    #feedback-form button[type="submit"] {
-      order: 1;
-      justify-self: start;
-    }
-
-    #feedback-form #status {
-      order: 2;
-      margin-top: -0.75rem; /* tighten the 28px question gap */
-    }
-
-    @media (max-width: 599px) {
-      #feedback-form button[type="submit"] {
-        width: 100%;
-      }
-    }
-  </style>
 </head>
-<body>
-  <a class="skip-link" href="#main">Skip to content</a>
-  <header class="site-header">
-    <div class="container header-inner">
-      <a class="brand" href="/"><img src="/assets/kwalanotes-logo-ink.svg" alt="KwalaNotes" class="brand-logo"></a>
-      <nav aria-label="Primary"><ul class="nav-list">
-        <li><a href="/">Home</a></li>
-        <li><a href="/help.html">Help</a></li>
-      </ul></nav>
-    </div>
-  </header>
-  <main id="main">
-    <section class="section">
-      <div class="container">
-        <h1>Tester feedback</h1>
+<body class="feedback">
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="top"><div class="wrap"><a class="brand" href="/index.html" aria-label="KwalaNotes home"><svg aria-hidden="true" width="34" height="26" viewBox="0 0 32 24" fill="#4A90C8"><rect x="0" y="7" width="3" height="10" rx="1.5"></rect><rect x="5" y="1" width="3" height="22" rx="1.5"></rect><rect x="10" y="4" width="3" height="16" rx="1.5"></rect><rect x="15" y="7" width="3" height="10" rx="1.5"></rect><rect x="20" y="9.5" width="3" height="5" rx="1.5"></rect><rect x="25" y="10.5" width="7" height="3" rx="1.5"></rect></svg><span><b>kwala</b>notes</span></a><nav class="nav" aria-label="Main"><a href="/index.html">Home</a><a href="/faq.html">FAQ</a><a href="/help.html">Help</a><a href="/privacy.html">Privacy</a><a href="/terms.html">Terms</a></nav><a class="btn" href="https://apps.microsoft.com/detail/9MWMGF2BBXBX">Download</a></div></header>
+<main id="main">
+  <div class="head cloth"><div class="wrap"><div class="panel"><h1>Tester feedback</h1></div></div></div>
+  <div class="wrap body one">
+    <article>
         <p class="section-intro">Thank you for testing KwalaNotes. This form is anonymous: it does not ask for your name or email and we do not collect who sent it. Please do not paste confidential meeting content. Takes about 3 minutes.</p>
         <p>* Required questions</p>
         <form id="feedback-form" class="contact-form" method="post" novalidate>
@@ -237,7 +50,7 @@
             <label for="overall-4"><input id="overall-4" name="overall" type="radio" value="5" required> 5</label>
           </fieldset>
           <fieldset class="form-field scale">
-            <legend>5. How accurate was the transcript for mixed Setswana and English?*</legend>
+            <legend>5. How accurate were the notes for mixed Setswana and English?*</legend>
             <label for="transcript-0"><input id="transcript-0" name="transcript" type="radio" value="1" required> 1</label>
             <label for="transcript-1"><input id="transcript-1" name="transcript" type="radio" value="2" required> 2</label>
             <label for="transcript-2"><input id="transcript-2" name="transcript" type="radio" value="3" required> 3</label>
@@ -301,21 +114,12 @@
             <input id="website" name="website" type="text" tabindex="-1" autocomplete="off">
           </div>
           <p id="status" class="form-status" role="status"></p>
-          <button class="button button-primary" type="submit">Send feedback</button>
+          <button class="btn" type="submit">Send feedback</button>
         </form>
-      </div>
-    </section>
-  </main>
-  <footer class="site-footer">
-    <div class="container footer-inner">
-      <nav aria-label="Footer"><ul class="footer-links">
-        <li><a href="/">Home</a></li>
-        <li><a href="/privacy.html">Privacy</a></li>
-        <li><a href="/terms.html">Terms</a></li>
-        <li><a href="/help.html">Help</a></li>
-      </ul></nav>
-    </div>
-  </footer>
+    </article>
+  </div>
+</main>
+<footer><div class="wrap"><span>© 2026 KwalaNotes. All rights reserved.</span><nav aria-label="Footer"><a href="/index.html#contact">Contact</a><a href="/privacy.html">Privacy</a><a href="/terms.html">Terms</a><a href="/help.html">Help</a></nav></div></footer>
   <script src="/feedback.js" defer></script>
 </body>
 </html>

@@ -16,244 +16,288 @@
   <meta name="twitter:description" content="Record, transcribe and summarise Botswana meetings in mixed Setswana and English. No bot joins your call. Audio is deleted once your notes are ready.">
   <meta name="twitter:image" content="https://kwalanotes.com/og-image.png">
   <meta name="theme-color" content="#4A90C8">
-  <link rel="icon" href="favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="/home.css">
+  <script src="/home.js" defer></script>
+  <script src="/contact.js" defer></script>
+  <script src="/count.js" defer></script>
 </head>
 <body>
-  <a class="skip-link" href="#main">Skip to content</a>
+<a class="skip-link" href="#main">Skip to content</a>
 
-  <header class="site-header">
-    <div class="container header-inner">
-      <a class="brand" href="#top"><img src="assets/kwalanotes-logo-ink.svg" alt="KwalaNotes" class="brand-logo"></a>
-      <nav aria-label="Primary">
-        <ul class="nav-list">
-          <li><a href="#contact">Contact</a></li>
-          <li><a href="faq.html">FAQ</a></li>
-          <li><a href="/help.html">Help</a></li>
-          <li class="language-switch"><a href="index.html" lang="en" aria-current="page">English</a> | <a href="setswana.html" lang="tn">Setswana</a></li>
-          <li class="header-download"><a class="button button-primary" href="/download">Download</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
+<header class="top">
+<div class="wrap">
+<a class="brand" href="#top" aria-label="KwalaNotes home">
+<svg aria-hidden="true" width="34" height="26" viewBox="0 0 32 24" fill="#4A90C8"><rect x="0" y="7" width="3" height="10" rx="1.5"></rect><rect x="5" y="1" width="3" height="22" rx="1.5"></rect><rect x="10" y="4" width="3" height="16" rx="1.5"></rect><rect x="15" y="7" width="3" height="10" rx="1.5"></rect><rect x="20" y="9.5" width="3" height="5" rx="1.5"></rect><rect x="25" y="10.5" width="7" height="3" rx="1.5"></rect></svg>
+<span><b>kwala</b><span>notes</span></span>
+</a>
+<nav class="dock" id="dock" aria-label="Main">
+<span class="ind" aria-hidden="true"></span>
+<a href="#how">How it works</a>
+<a href="#pricing">Pricing</a>
+<a href="#privacy">Privacy</a>
+<a href="#contact">Contact</a>
+<a href="/faq.html">FAQ</a>
+<a href="/help.html">Help</a>
+</nav>
+<div class="right">
+<a class="btn small" href="https://apps.microsoft.com/detail/9MWMGF2BBXBX">Download</a>
+</div>
+</div>
+</header>
 
-  <main id="main">
-    <section id="top" class="hero">
-      <div class="container hero-layout">
-        <div class="hero-copy">
-          <h1>Meeting notes that understand Setswana and English</h1>
-          <p class="subline">
-            Record your meeting on Windows and get clear English notes — a summary and decisions — even when people switch between Setswana and English.
-          </p>
-          <div class="cta-row">
-            <div class="download-cta"><a class="button button-primary" href="/download">Download for Windows</a>
-            <p class="download-note">Windows 10 or 11. The installer is new and not yet signed: if Windows says 'Windows protected your PC', click More info, then Run anyway. <a href="faq.html">Install help</a></p>
-            <p class="phone-link"><a href="mailto:?subject=KwalaNotes%20download&amp;body=https%3A%2F%2Fkwalanotes.com%2Fdownload">On your phone? Email yourself the link</a></p></div>
-          </div>
-          <p class="hero-note">Free trial: 2 meeting hours over 7 days — sign up in the app with the code EISH. No bot joins your call.</p>
-        </div>
-        <section id="sample" class="hero-example" aria-labelledby="example-title">
-          <img class="hero-app-shot" src="assets/app-home.png" alt="KwalaNotes home screen">
-          <h2 id="example-title">Setswana in, English notes out</h2>
-          <div class="sample-grid">
-            <article class="notes-card" aria-labelledby="spoken-title">
-              <h3 id="spoken-title">What was said</h3>
-              <p>Me: Dumelang, a re simolole. Re tshwanetse go fetsa budget ka Labobedi.</p>
-              <p>Them: Ee, mme ke batla gore Kagiso a romele invoice pele.</p>
-              <p>Me: Go siame, Kagiso o tla e romela ka Labone.</p>
-            </article>
-            <article class="notes-card" aria-labelledby="sample-title">
-              <h3 id="sample-title">KwalaNotes writes</h3>
-              <section class="notes-block">
-                <h4>Summary</h4>
-                <p>The team agreed to finish the budget by Tuesday. Kagiso will send the invoice first.</p>
-              </section>
-                <section class="notes-block">
-                  <h4>Decisions</h4>
-                  <p>Finish the budget by Tuesday.</p>
-                </section>
-                <section class="notes-block">
-                  <h4>Key outcomes</h4>
-                  <p>Kagiso sends the invoice by Thursday.</p>
-                </section>
-              </article>
-            </div>
-            <p class="example-caption">Example. Real notes can contain mistakes, mostly in names.</p>
-        </section>
-      </div>
-    </section>
+<main id="main">
+<span id="top"></span>
 
-    <section id="how-it-works" class="section">
-      <div class="container">
-        <h2>How it works</h2>
-        <ol class="steps">
-          <li class="step">
-            <h3>Record</h3>
-            <p>
-              Capture your microphone and your computer's audio as two separate
-              tracks, so speakers can be labelled "Me" and "Them".
-            </p>
-          </li>
-          <li class="step">
-            <h3>Transcribe</h3>
-            <p>
-              Audio is transcribed in short chunks with timestamps, in Setswana and English as spoken.
-            </p>
-          </li>
-          <li class="step">
-            <h3>Notes</h3>
-            <p>
-              Get a summary and decisions. When something is
-              unclear, the notes say "Please check" instead of guessing.
-            </p>
-          </li>
-        </ol>
-      </div>
-    </section>
+<div class="mega" id="mega" aria-hidden="true">
+<span class="word">kwala<i>notes</i><span class="over cloth">kwala<i>notes</i></span></span>
+</div>
 
-    <section id="why" class="section section-alt">
-      <div class="container">
-        <h2>Why it's different</h2>
-        <ul class="features">
-          <li class="feature">
-            <h3>Built for mixed Setswana and English</h3>
-            <p>
-              It is built for mixed Setswana and English and writes the notes in English. It is still in testing: the notes can contain mistakes, mostly in names, so check names before you send notes on.
-            </p>
-          </li>
-          <li class="feature">
-            <h3>No bot joins your call</h3>
-            <p>
-              No bot is added to your meeting. You record on your own computer.
-            </p>
-          </li>
-        </ul>
-      </div>
-    </section>
+<div class="hero" id="hero">
+<canvas id="swarm" aria-hidden="true"></canvas>
+<div class="wrap">
+<div>
+<div class="flipwrap"><span id="flip-label">Headline in</span><button type="button" class="flip" id="flip" aria-pressed="false" aria-label="Show the headline in Setswana"><span class="thumb"></span><span data-l="en">English</span><span data-l="tn">Setswana</span></button></div>
+<h1 id="h1" aria-label="Meeting notes that understand Setswana and English"><span class="hl hl-en" aria-hidden="true">Meeting notes that understand Setswana and English</span><span class="hl hl-tn" aria-hidden="true" lang="tn">Dikwalo tsa kopano tse di tlhaloganyang Setswana le Sekgoa</span></h1>
+<p class="lede">Record your meeting on Windows and get clear English notes, with a summary and decisions, even when people switch between Setswana and English.</p>
+<div class="cta">
+<a class="btn big" href="https://apps.microsoft.com/detail/9MWMGF2BBXBX"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11"></path><path d="M7 11l5 5 5-5"></path><path d="M5 20h14"></path></svg><span>Download for Windows</span></a>
+<div class="trial">
+<span>2 free meeting hours over 7 days with the code</span>
+<span class="code"><span id="trial-code">EISH</span><button type="button" data-copy="EISH" aria-label="Copy the code EISH">Copy</button></span>
+</div>
+</div>
+<p class="fine">No bot joins your call. You sign up in the app.</p>
+<p class="fine">Windows 10 or 11. Free from the Microsoft Store. <a href="/faq.html">Install help</a></p>
+<p class="fine">On your phone? <a href="mailto:?subject=KwalaNotes%20download&amp;body=https%3A%2F%2Fkwalanotes.com%2Fdownload">Email yourself the link</a>: kwalanotes.com/download</p>
+</div>
 
-    <section id="who-it-is-for" class="section">
-      <div class="container">
-        <h2>Who it is for</h2>
-        <ul>
-          <li>Small businesses — client meetings.</li>
-          <li>Consultants — client workshops.</li>
-          <li>NGOs and projects — partner and donor meetings.</li>
-          <li>Sales teams — customer calls.</li>
-        </ul>
-      </div>
-    </section>
+<div class="swarm-col">
+<div class="swarm-box" id="swarm-box" role="img" aria-label="Thousands of dots form the word Hello, then Dumela, then the KwalaNotes mark, then a leteisi print"></div>
+<div class="force">
+<span id="force-label">Move through the dots. Click to scatter them. Your cursor can</span>
+<div class="seg" id="seg" data-mode="push" role="group" aria-labelledby="force-label">
+<span class="thumb" aria-hidden="true"></span>
+<button type="button" data-mode="push" aria-pressed="true">Push</button>
+<button type="button" data-mode="pull" aria-pressed="false">Pull</button>
+<button type="button" data-mode="swirl" aria-pressed="false">Swirl</button>
+</div>
+</div>
+</div>
+</div>
+</div>
 
-    <section id="what-you-need" class="section section-alt">
-      <div class="container">
-        <h2>What you need</h2>
-        <ul>
-          <li>Windows 10 or 11.</li>
-          <li>An internet connection.</li>
-          <li>Works with Zoom, Microsoft Teams, Google Meet and WhatsApp desktop calls, and in-person meetings.</li>
-          <li>A headset gives the best results.</li>
-        </ul>
-      </div>
-    </section>
+<section class="band demo-sec" id="example">
+<div class="wrap split">
+<div>
+<h2 class="h2">Setswana in, English notes out</h2>
+<p class="sub">Press play, or drag the strip of cloth, and watch three lines of a meeting turn into notes.</p>
+<div class="picker">
+<span id="pick-label">This site wears leteisi. Pick its print.</span>
+<div class="sws" role="group" aria-labelledby="pick-label">
+<button type="button" class="sw lt-rings" data-print="rings" aria-pressed="true" aria-label="Rings print"></button>
+<button type="button" class="sw lt-stripes" data-print="stripes" aria-pressed="false" aria-label="Stripes print"></button>
+<button type="button" class="sw lt-lattice" data-print="lattice" aria-pressed="false" aria-label="Diamonds print"></button>
+<button type="button" class="sw lt-check" data-print="check" aria-pressed="false" aria-label="Check print"></button>
+<button type="button" class="sw lt-flowers" data-print="flowers" aria-pressed="false" aria-label="Flowers print"></button>
+<button type="button" class="sw lt-fans" data-print="fans" aria-pressed="false" aria-label="Fans print"></button>
+</div>
+</div>
+</div>
+<div>
+<div class="stage" id="stage">
+<div class="layer cloth raw"></div>
+<div class="layer cloth ink"></div>
+<div class="head"></div>
+<div class="layer glow"></div>
 
-    <section id="pricing" class="section section-alt">
-      <div class="container">
-        <h2>Pricing</h2>
-        <div class="pricing-card">
-          <p class="price">Starter — US$4.99 per month</p>
-          <p class="price-note">8 meeting hours a month</p>
-          <p class="price">Standard — US$9.99 per month</p>
-          <p class="price-note">20 meeting hours a month</p>
-          <p class="price-note">Per user. Paid monthly with PayPal — subscribe in the app.</p>
-          <p class="price-note">Hours count from one payment to the next. Need more? Extra hours: US$4.99 for 8 hours.</p>
-          <p class="price-note">Cancel any time; no refunds — you keep access until the end of the month you've paid for. See the <a href="terms.html">terms</a>.</p>
-          <p class="price-note">Free trial: 2 meeting hours over 7 days with the code EISH.</p>
-          <a class="button button-primary" href="/download">Download for Windows</a>
-          <p class="download-note">Windows 10 or 11. The installer is new and not yet signed: if Windows says 'Windows protected your PC', click More info, then Run anyway. <a href="faq.html">Install help</a></p>
-          <p class="phone-link"><a href="mailto:?subject=KwalaNotes%20download&amp;body=https%3A%2F%2Fkwalanotes.com%2Fdownload">On your phone? Email yourself the link</a></p>
-        </div>
-      </div>
-    </section>
+<div class="demo" id="demo">
+<div class="card said">
+<div class="cap"><span>What was said</span><span>Setswana</span></div>
+<button type="button" class="line" data-k="1"><span class="spk">Me</span><span class="tx">Dumelang, a re simolole. Re tshwanetse go fetsa budget ka Labobedi.</span></button>
+<button type="button" class="line" data-k="2"><span class="spk">Them</span><span class="tx">Ee, mme ke batla gore Kagiso a romele invoice pele.</span></button>
+<button type="button" class="line" data-k="3"><span class="spk">Me</span><span class="tx">Go siame, Kagiso o tla e romela ka Labone.</span></button>
+</div>
+<div class="status done n" id="demo-status" role="status"><i><b></b><b></b><b></b></i><span>Notes ready</span></div>
+<div class="card wrote">
+<div class="cap"><span>KwalaNotes writes</span><span>English</span></div>
+<div class="n"><h4>Summary</h4><p><span data-k="1">The team agreed to finish the budget by Tuesday.</span> <span data-k="2">Kagiso will send the invoice first.</span></p></div>
+<div class="n"><h4>Decisions</h4><p><span data-k="1">Finish the budget by Tuesday.</span></p></div>
+<div class="n"><h4>Key outcomes</h4><p><span data-k="3">Kagiso sends the invoice by Thursday.</span></p></div>
+</div>
+</div>
+<div class="player">
+<button type="button" class="pp" id="pp" aria-label="Play the example again"><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path id="pp-icon" d="M7 4.5v15l12-7.5z"></path></svg></button>
+<div class="scrub" id="scrub">
+<div class="bar cloth raw"></div>
+<div class="fill"><div class="cloth"></div></div>
+<span class="knob"></span>
+<input id="seek" type="range" min="0" max="1000" step="1" value="1000" aria-label="Move through the example meeting">
+</div>
+</div>
+<p class="demo-note"><span>Drag the cloth to move through the meeting. Point at a line to see where it went. Example only: real notes can contain mistakes, mostly in names.</span></p>
+</div>
+</div>
+</div>
+</section>
 
-    <section id="privacy" class="section">
-      <div class="container">
-        <h2>Privacy summary</h2>
-        <ul class="privacy-list">
-          <li>Audio is deleted from our servers as soon as your notes are ready, and from your laptop once the notes arrive.</li>
-          <li>Microphone and system audio are kept as separate tracks so speakers can be labelled "Me" and "Them".</li>
-          <li>The audio is uploaded securely for transcription to servers in the United States. To write the notes, the transcript text is sent to our AI providers (large language model services), whose servers may be outside Botswana and South Africa. We never use your meetings to train AI. Our AI providers process transcript text to write your notes, under their own terms.</li>
-          <li>Read the full <a href="privacy.html">privacy policy</a> for details.</li>
-        </ul>
-      </div>
-    </section>
+<section class="band" id="how">
+<div class="wrap">
+<h2 class="h2">How it works</h2>
+<div class="mill">
+<canvas id="funnel" role="img" aria-label="Setswana and English words swirl into a funnel and come out as notes"></canvas>
+<div class="out" id="out">
+<small>KwalaNotes writes</small>
+<h4>Summary</h4><p>The team agreed to finish the budget by Tuesday. Kagiso will send the invoice first.</p>
+<h4>Decisions</h4><p>Finish the budget by Tuesday.</p>
+<h4>Key outcomes</h4><p>Kagiso sends the invoice by Thursday.</p>
+</div>
+</div>
+<div class="track" id="track" aria-hidden="true">
+<div class="layer cloth raw"></div>
+<div class="layer cloth ink"></div>
+<span class="pin" style="left:calc(0% + 36px)">1</span>
+<span class="pin" style="left:calc(33.33% + 36px)">2</span>
+<span class="pin" style="left:calc(66.66% + 36px)">3</span>
+</div>
+<ol class="steps">
+<li><h3>Record</h3><p>Capture your microphone and your computer's audio as two separate tracks, so speakers can be labelled "Me" and "Them".</p></li>
+<li><h3>Transcribe</h3><p>Audio is transcribed in short chunks with timestamps, in Setswana and English as spoken.</p></li>
+<li><h3>Notes</h3><p>Get a summary and decisions. When something is unclear, the notes say "Please check" instead of guessing.</p></li>
+</ol>
+</div>
+</section>
 
-    <div class="section section-alt">
-      <div class="container"><p><a href="faq.html">Questions? Read the FAQ</a></p></div>
-    </div>
+<section class="band">
+<div class="wrap">
+<h2 class="h2">Why it's different</h2>
+<div class="why">
+<article><h3>Built for mixed Setswana and English</h3><p>It is built for mixed Setswana and English and writes the notes in English. It is still in testing: the notes can contain mistakes, mostly in names, so check names before you send notes on.</p></article>
+<article><h3>No bot joins your call</h3><p>No bot is added to your meeting. You record on your own computer.</p></article>
+</div>
+</div>
+</section>
 
-    <section id="contact" class="section">
-      <div class="container">
-        <h2>Contact</h2>
-        <p class="section-intro">Questions or a problem? Send us a message and we'll reply by email.</p>
-        <form id="contact-form" class="contact-form" method="post">
-          <div class="form-field">
-            <label for="name">Name</label>
-            <input id="name" name="name" type="text" autocomplete="name" maxlength="80" required>
-          </div>
-          <div class="form-field">
-            <label for="email">Email</label>
-            <input id="email" name="email" type="email" autocomplete="email" maxlength="254" required>
-          </div>
-          <div class="form-field">
-            <label for="message">Message</label>
-            <textarea id="message" name="message" rows="5" maxlength="2000" required></textarea>
-          </div>
-          <div class="visually-hidden" aria-hidden="true">
-            <label for="website">Website</label>
-            <input id="website" name="website" type="text" tabindex="-1" autocomplete="off">
-          </div>
-          <p id="status" class="form-status" role="status"></p>
-          <button class="button button-primary" type="submit">Send</button>
-          <p class="form-fallback">Or email us at <a href="mailto:kwalanotes@gmail.com">kwalanotes@gmail.com</a>.</p>
-        </form>
-      </div>
-    </section>
+<section class="band">
+<div class="wrap split">
+<div>
+<h2 class="h2">Who it is for</h2>
+<ul class="aud" id="aud">
+<li class="on"><b>Small businesses</b><span>Client meetings.</span></li>
+<li><b>Consultants</b><span>Client workshops.</span></li>
+<li><b>NGOs and projects</b><span>Partner and donor meetings.</span></li>
+<li><b>Sales teams</b><span>Customer calls.</span></li>
+</ul>
+<p style="margin-top:20px"><button type="button" class="btn ghost small" id="deal">Next card</button></p>
+</div>
+<div class="deck" id="deck" aria-hidden="true">
+<div class="dcard"><div class="bandp lt-rings"></div><div class="txt"><b>Small businesses</b><span>Client meetings.</span></div></div>
+<div class="dcard"><div class="bandp lt-stripes"></div><div class="txt"><b>Consultants</b><span>Client workshops.</span></div></div>
+<div class="dcard"><div class="bandp lt-lattice"></div><div class="txt"><b>NGOs and projects</b><span>Partner and donor meetings.</span></div></div>
+<div class="dcard"><div class="bandp lt-flowers"></div><div class="txt"><b>Sales teams</b><span>Customer calls.</span></div></div>
+</div>
+</div>
+</section>
 
-    <section id="download" class="section download-section">
-      <div class="container">
-        <h2>Download for Windows</h2>
-        <p>
-          Free trial: 2 meeting hours over 7 days — sign up in the app with the code EISH.
-        </p>
-        <a class="button button-primary" href="/download">Download for Windows</a>
-        <a id="store-link" class="button button-secondary" data-store-url="" hidden>Get it from Microsoft Store</a>
-        <p class="download-note">Windows 10 or 11. The installer is new and not yet signed: if Windows says 'Windows protected your PC', click More info, then Run anyway. <a href="faq.html">Install help</a></p>
-        <p class="phone-link"><a href="mailto:?subject=KwalaNotes%20download&amp;body=https%3A%2F%2Fkwalanotes.com%2Fdownload">On your phone? Email yourself the link</a></p>
-      </div>
-    </section>
+<section class="band">
+<div class="wrap">
+<h2 class="h2">What you need</h2>
+<ul class="need">
+<li><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg><span>Windows 10 or 11.</span></li>
+<li><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg><span>An internet connection.</span></li>
+<li><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg><span>Works with Zoom, Microsoft Teams, Google Meet and WhatsApp desktop calls, and in-person meetings.</span></li>
+<li><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg><span>A headset gives the best results.</span></li>
+</ul>
+</div>
+</section>
 
-    <section id="about" class="section section-alt">
-      <div class="container">
-        <h2>About</h2>
-        <p>KwalaNotes is made in Botswana for meetings in Setswana and English. Questions? Email <a href="mailto:kwalanotes@gmail.com">kwalanotes@gmail.com</a>.</p>
-      </div>
-    </section>
-  </main>
+<section class="band" id="pricing">
+<div class="wrap">
+<h2 class="h2">Pricing</h2>
+<p class="sub">Move the slider to your month. The plan that fits lights up.</p>
+<div class="price">
+<div class="dial">
+<label for="hrs">Hours of meetings in a month</label>
+<div class="hours"><output id="hrs-out" for="hrs">12</output><small>hours</small></div>
+<input id="hrs" type="range" min="1" max="60" step="1" value="12">
+<p class="verdict" id="verdict" aria-live="polite"></p>
+</div>
+<div class="plans">
+<article class="plan" id="plan-starter"><span class="tag">Fits your month</span><h3>Starter</h3><div class="amt">US$4.99 <small>per month</small></div><p>8 meeting hours a month</p></article>
+<article class="plan" id="plan-standard"><span class="tag">Fits your month</span><h3>Standard</h3><div class="amt">US$9.99 <small>per month</small></div><p>20 meeting hours a month</p></article>
+<div class="terms">
+<p>Per user. Paid monthly with PayPal. You subscribe in the app.</p>
+<p>Hours count from one payment to the next. Need more? Extra hours: US$4.99 for 8 hours.</p>
+<p>Cancel any time. There are no refunds: you keep access until the end of the month you've paid for. See the <a href="/terms.html">terms</a>.</p>
+<p>Free trial: 2 meeting hours over 7 days with the code EISH.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
 
-  <footer class="site-footer">
-    <div class="container footer-inner">
-      <nav aria-label="Footer">
-        <ul class="footer-links">
-          <li><a href="index.html#contact">Contact</a></li>
-          <li><a href="privacy.html">Privacy</a></li>
-          <li><a href="terms.html">Terms</a></li>
-          <li><a href="/help.html">Help</a></li>
-        </ul>
-      </nav>
-      <p class="footer-copy">© 2026 KwalaNotes. All rights reserved.</p>
-    </div>
-  </footer>
-  <script src="/count.js" defer></script>
-  <script src="/contact.js" defer></script>
-  <script src="/store.js" defer></script>
+<section class="band" id="privacy">
+<div class="wrap">
+<h2 class="h2">Where your meeting goes</h2>
+<p class="sub">Four stops, in plain words. Read the full <a href="/privacy.html">privacy policy</a> for details.</p>
+<ol class="route">
+<li><span class="num">1</span><h3>Your laptop</h3><p>You record on your own computer. Microphone and system audio are kept as separate tracks so speakers can be labelled "Me" and "Them".</p></li>
+<li><span class="num">2</span><h3>Transcription servers, United States</h3><p>The audio is uploaded securely for transcription.</p></li>
+<li><span class="num">3</span><h3>AI providers</h3><p>The transcript text is sent to our AI providers to write the notes. Their servers may be outside Botswana and South Africa, and they process the text under their own terms.</p></li>
+<li><span class="num">4</span><h3>Back to you, audio deleted</h3><p>Audio is deleted from our servers as soon as your notes are ready, and from your laptop once the notes arrive. We never use your meetings to train AI.</p></li>
+</ol>
+<p class="fine" style="margin-top:28px"><a href="/faq.html">Questions? Read the FAQ</a></p>
+</div>
+</section>
+
+<section class="band" id="contact">
+<div class="wrap contact">
+<div>
+<h2 class="h2">Contact</h2>
+<p class="sub">Questions or a problem? Send us a message and we'll reply by email.</p>
+<p class="sub">Or email us at <a href="mailto:kwalanotes@gmail.com">kwalanotes@gmail.com</a>.</p>
+<p class="sub" style="font-size:1rem;color:var(--mist)">KwalaNotes is made in Botswana for meetings in Setswana and English.</p>
+</div>
+<form id="contact-form" method="post">
+<label class="f" for="name">Name<input id="name" name="name" type="text" autocomplete="name" maxlength="80" required></label>
+<label class="f" for="email">Email<input id="email" name="email" type="email" autocomplete="email" maxlength="254" required></label>
+<label class="f" for="message">Message<textarea id="message" name="message" rows="5" maxlength="2000" required></textarea></label>
+<div class="visually-hidden" aria-hidden="true">
+  <label for="website">Website</label>
+  <input id="website" name="website" type="text" tabindex="-1" autocomplete="off">
+</div>
+<div><button class="btn" type="submit">Send</button></div>
+<p id="status" role="status"></p>
+</form>
+</div>
+</section>
+
+<div class="last" id="get">
+<div class="layer cloth raw"></div>
+<div class="layer cloth" id="trail"></div>
+<div class="wrap">
+<div class="panel">
+<h2>Meetings without the eish.</h2>
+<div class="cta">
+<a class="btn big" href="https://apps.microsoft.com/detail/9MWMGF2BBXBX"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11"></path><path d="M7 11l5 5 5-5"></path><path d="M5 20h14"></path></svg><span>Download for Windows</span></a>
+</div>
+<p class="fine">Free trial: 2 meeting hours over 7 days. Sign up in the app with the code EISH.</p>
+<p class="fine">Windows 10 or 11. Free from the Microsoft Store. <a href="/faq.html">Install help</a></p>
+</div>
+</div>
+</div>
+</main>
+
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><filter id="goo"><feGaussianBlur in="SourceGraphic" stdDeviation="5" result="b"></feGaussianBlur><feColorMatrix in="b" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 26 -10"></feColorMatrix></filter></svg>
+
+<footer>
+<div class="wrap">
+<span>© 2026 KwalaNotes. All rights reserved.</span>
+<nav aria-label="Footer"><a href="#contact">Contact</a><a href="/privacy.html">Privacy</a><a href="/terms.html">Terms</a><a href="/help.html">Help</a></nav>
+</div>
+</footer>
+
 </body>
 </html>

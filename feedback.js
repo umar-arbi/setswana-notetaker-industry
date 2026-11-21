@@ -9,7 +9,7 @@
     ["meeting_types", "Q2 Meeting types", true],
     ["meeting_count", "Q3 Meetings recorded", true],
     ["overall", "Q4 Overall quality", true],
-    ["transcript", "Q5 Transcript accuracy", true],
+    ["transcript", "Q5 Notes accuracy (mixed Setswana and English)", true],
     ["notes", "Q6 Notes usefulness", true],
     ["speakers", "Q7 Speakers labelled correctly"],
     ["ease", "Q8 Ease of use", true],
