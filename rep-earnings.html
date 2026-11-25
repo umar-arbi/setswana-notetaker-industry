@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Rep earnings — KwalaNotes</title>
-  <meta name="description" content="Your KwalaNotes rep earnings and bank details.">
+  <meta name="description" content="Your KwalaNotes rep earnings and payout details.">
   <meta name="robots" content="noindex">
   <meta name="theme-color" content="#4A90C8">
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self' https://umar-arbi--setswana-notetaker-web.us-east.modal.run; base-uri 'self'; form-action 'self'; frame-ancestors 'none'">
@@ -29,28 +29,25 @@
           <div><dt>Paid</dt><dd id="rep-paid">—</dd></div>
         </dl>
       </section>
-      <h2>Bank details</h2>
-      <p class="rep-hint">We pay your commission to this account every Saturday.</p>
-      <p id="bank-masked" class="rep-bank-saved">—</p>
-      <form id="bank-form" class="contact-form" method="post" novalidate>
+      <h2>Payout details</h2>
+      <p class="rep-hint">We pay your commission to this number by Pay2Cell or e-Wallet every Saturday.</p>
+      <p id="payout-masked" class="rep-bank-saved">—</p>
+      <form id="payout-form" class="contact-form" method="post" novalidate>
+        <fieldset class="chips" aria-labelledby="payout-method-label">
+          <legend id="payout-method-label">How should we pay you?</legend>
+          <label><input type="radio" name="method" value="pay2cell"> <span>Pay2Cell</span></label>
+          <label><input type="radio" name="method" value="ewallet"> <span>e-Wallet</span></label>
+        </fieldset>
         <div class="form-field">
-          <label for="bank-holder">Account holder</label>
-          <input id="bank-holder" name="holder" type="text" maxlength="80">
+          <label for="payout-name">Full name (as on your mobile money)</label>
+          <input id="payout-name" name="name" type="text" maxlength="80" autocomplete="name">
         </div>
         <div class="form-field">
-          <label for="bank-name">Bank</label>
-          <input id="bank-name" name="bank" type="text" maxlength="60">
+          <label for="payout-mobile">Mobile number</label>
+          <input id="payout-mobile" name="mobile" type="tel" inputmode="tel" maxlength="20" placeholder="7x xxx xxx" autocomplete="tel-national">
         </div>
-        <div class="form-field">
-          <label for="bank-account">Account number</label>
-          <input id="bank-account" name="account" type="text" inputmode="numeric" maxlength="30" autocomplete="off">
-        </div>
-        <div class="form-field">
-          <label for="bank-branch">Branch code</label>
-          <input id="bank-branch" name="branch" type="text" maxlength="20">
-        </div>
-        <button id="bank-save" class="btn" type="submit">Save bank details</button>
-        <p id="bank-status" class="form-status" role="status"></p>
+        <button id="payout-save" class="btn" type="submit">Save payout details</button>
+        <p id="payout-status" class="form-status" role="status"></p>
       </form>
       <p class="rep-links"><a href="/rep-terms.html">Rep terms</a></p>
       <p><button id="rep-signout" class="btn ghost" type="button">Sign out</button></p>

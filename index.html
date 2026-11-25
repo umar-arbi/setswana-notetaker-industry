@@ -22,6 +22,7 @@
   <script src="/home.js" defer></script>
   <script src="/contact.js" defer></script>
   <script src="/count.js" defer></script>
+  <script src="/rep-calc.js" defer></script>
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
@@ -285,6 +286,88 @@
 </div>
 </div>
 </div>
+
+<section class="band rep-sec" id="rep" aria-labelledby="rep-title">
+<div class="wrap">
+<div class="rep-head">
+<h2 class="h2" id="rep-title">Become a rep</h2>
+<p class="sub">Tell people about KwalaNotes and earn for every new customer who subscribes with your code. Anyone 18 or older can join, free.</p>
+</div>
+<div class="rep-grid">
+<div class="rep-earn">
+<div class="rep-cloth cloth"><span class="rep-pill">Free to join · 18+</span></div>
+<div class="rep-earn-body">
+<p class="rep-earn-label">You earn, for each new customer</p>
+<dl class="rep-amts">
+<div><dt>Standard customer</dt><dd><span class="cur">P</span>20</dd></div>
+<div><dt>Starter customer</dt><dd><span class="cur">P</span>10</dd></div>
+</dl>
+<p class="rep-earn-note">Paid to your phone by Pay2Cell or e-Wallet every Saturday.</p>
+</div>
+</div>
+<div class="rep-side">
+<ol class="rep-path">
+<li><span class="num" aria-hidden="true">1</span><h3>Sign up</h3><p>Join with your KwalaNotes account (email and password), or create one, and get your personal rep code.</p></li>
+<li><span class="num" aria-hidden="true">2</span><h3>Share your code</h3><p>New customers enter it in the app on the “Choose your plan” screen and subscribe within 1 hour.</p></li>
+<li><span class="num" aria-hidden="true">3</span><h3>Get paid</h3><p>P20 for each new Standard customer and P10 for each new Starter customer, paid to your phone by Pay2Cell or e-Wallet every Saturday.</p></li>
+</ol>
+<div class="rep-cta">
+<a class="btn" href="/rep.html"><span>Become a rep</span><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13"></path><path d="M13 7l5 5-5 5"></path></svg></a>
+<a class="btn ghost" href="/rep-terms.html">Rep terms</a>
+</div>
+<p class="rep-already"><a href="/rep-earnings.html">Already a rep? See your earnings</a></p>
+</div>
+</div>
+<div class="rep-calc" id="rep-calc">
+<div class="rc-controls">
+<h3 class="rc-title">See what it adds up to</h3>
+<p class="rc-intro">Pick how many new customers sign up with your code.</p>
+<div class="rc-field">
+<span class="rc-label" id="rc-n-label">New customers</span>
+<div class="rc-count">
+<div class="rc-stepper" role="group" aria-labelledby="rc-n-label">
+<button type="button" class="rc-btn" id="rc-dec" aria-label="One customer fewer" disabled><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 12h12"></path></svg></button>
+<output class="rc-n" id="rc-n" aria-labelledby="rc-n-label">10</output>
+<button type="button" class="rc-btn" id="rc-inc" aria-label="One customer more" disabled><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 12h12"></path><path d="M12 6v12"></path></svg></button>
+</div>
+<div class="rc-chips" role="group" aria-label="Quick picks">
+<button type="button" class="rc-chip" data-n="5" aria-pressed="false" disabled>5</button>
+<button type="button" class="rc-chip" data-n="10" aria-pressed="true" disabled>10</button>
+<button type="button" class="rc-chip" data-n="25" aria-pressed="false" disabled>25</button>
+<button type="button" class="rc-chip" data-n="50" aria-pressed="false" disabled>50</button>
+</div>
+</div>
+</div>
+<div class="rc-field">
+<span class="rc-label" id="rc-mix-label">Plan they choose</span>
+<div class="rc-mix" role="group" aria-labelledby="rc-mix-label">
+<button type="button" class="rc-btn small" id="rc-more-sta" aria-label="Move one customer to Starter" disabled><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"></path></svg></button>
+<div class="rc-bar" aria-hidden="true"><span class="rc-bar-std" id="rc-bar-std"></span></div>
+<button type="button" class="rc-btn small" id="rc-more-std" aria-label="Move one customer to Standard" disabled><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"></path></svg></button>
+</div>
+<div class="rc-legend">
+<span class="rc-key std"><i aria-hidden="true"></i>Standard <b id="rc-s">10</b></span>
+<span class="rc-key sta"><i aria-hidden="true"></i>Starter <b id="rc-t">0</b></span>
+</div>
+</div>
+</div>
+<div class="rc-result cloth">
+<div class="rc-panel">
+<p class="rc-result-label">Example total</p>
+<p class="rc-total" aria-live="polite" aria-atomic="true"><span class="sr" id="rc-total-sr">P200 from 10 Standard customers</span><span class="rc-amt" id="rc-total" aria-hidden="true"><span class="cur">P</span><span id="rc-total-num">200</span></span></p>
+<p class="rc-sum" id="rc-sum">10 Standard customers × P20</p>
+</div>
+</div>
+<p class="rc-note">Example only. You earn P20 for each new Standard customer and P10 for each new Starter customer, once per customer.</p>
+</div>
+<ul class="rep-facts">
+<li><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"></circle><path d="M10.5 9l2-1.5V16.5"></path></svg><h3>One-off commission</h3><p>For each new customer, on their first payment.</p></li>
+<li><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5" width="17" height="15.5" rx="3"></rect><path d="M8 3v4"></path><path d="M16 3v4"></path><path d="M3.5 10h17"></path></svg><h3>Paid every Saturday</h3><p>For payments made before Saturday 00:00 Botswana time.</p></li>
+<li><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 12.2V4.5a1 1 0 0 1 1-1h7.7l8.3 8.3a1.4 1.4 0 0 1 0 2l-6.7 6.7a1.4 1.4 0 0 1-2 0z"></path><circle cx="8" cy="8" r="1.4"></circle></svg><h3>Normal price</h3><p>Your customers pay the normal price. The code doesn't change it.</p></li>
+<li><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16"></path><path d="M7 16v-4"></path><path d="M12 16V8"></path><path d="M17 16V5"></path></svg><h3>Track your earnings</h3><p>See what you've earned on your rep page.</p></li>
+</ul>
+</div>
+</section>
 </main>
 
 

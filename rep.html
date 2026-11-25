@@ -20,29 +20,83 @@
     <article>
       <p class="section-intro">Earn commission when your customers subscribe to KwalaNotes.</p>
       <ol class="rep-steps">
-        <li>Enter your email and we will send you a personal code.</li>
-        <li>Your customer enters the code in the app before paying and subscribes within one hour.</li>
-        <li>You earn P20 for each Standard and P10 for each Starter first payment, once per customer. We pay every Saturday by bank transfer for payments made before Saturday 00:00 Botswana time.</li>
+        <li>Join with your KwalaNotes account. Use your email and password, or create an account.</li>
+        <li>Your customer enters your code in the app before paying and subscribes within one hour.</li>
+        <li>You earn P20 for each Standard and P10 for each Starter first payment, once per customer. We pay every Saturday by Pay2Cell or e-Wallet to your mobile number for payments made before Saturday 00:00 Botswana time.</li>
       </ol>
+      <div class="chips rep-tabs" role="tablist" aria-label="Join or sign in">
+        <button id="tab-join" class="rep-tab" type="button" role="tab" aria-selected="true">Become a rep</button>
+        <button id="tab-signin" class="rep-tab" type="button" role="tab" aria-selected="false" tabindex="-1">Sign in</button>
+      </div>
       <form id="rep-form" class="contact-form" method="post" novalidate>
-        <div class="form-field">
-          <label for="rep-email">Email</label>
-          <input id="rep-email" name="email" type="email" maxlength="254" autocomplete="email" required>
-          <p class="rep-hint">Already a rep? Enter your email again to sign in.</p>
+        <div id="rep-step-account" class="rep-step">
+          <div class="form-field">
+            <label for="rep-email">Email</label>
+            <input id="rep-email" name="email" type="email" maxlength="254" autocomplete="email" required>
+            <p class="rep-hint">Already use the KwalaNotes app? Use the same email and password.</p>
+          </div>
+          <div class="form-field">
+            <label for="rep-password">Password</label>
+            <input id="rep-password" name="password" type="password" maxlength="128" autocomplete="new-password" required>
+            <p class="rep-hint">At least 8 characters.</p>
+          </div>
+          <div class="form-field">
+            <label for="rep-password2">Confirm password</label>
+            <input id="rep-password2" name="password2" type="password" maxlength="128" autocomplete="new-password" required>
+          </div>
+          <div class="form-field">
+            <label class="rep-check" for="rep-accept"><input id="rep-accept" type="checkbox"> <span>I accept the <a href="/rep-terms.html">rep terms</a></span></label>
+          </div>
         </div>
-        <button id="rep-send" class="btn" type="submit">Send me a code</button>
+        <button id="rep-send" class="btn" type="submit">Join as a rep</button>
         <div id="rep-step-code" class="rep-step" hidden>
           <div class="form-field">
             <label for="rep-code">6-digit code</label>
             <input id="rep-code" name="code" type="text" inputmode="numeric" maxlength="6" autocomplete="one-time-code" required>
           </div>
-          <div class="form-field">
-            <label class="rep-check" for="rep-accept"><input id="rep-accept" type="checkbox"> <span>I accept the <a href="/rep-terms.html">rep terms</a></span></label>
-          </div>
-          <button id="rep-verify" class="btn" type="submit">Continue</button>
+          <button id="rep-verify" class="btn" type="submit">Confirm and continue</button>
           <button id="rep-resend" class="btn ghost rep-resend" type="button">Send a new code</button>
         </div>
         <p id="rep-status" class="form-status" role="status"></p>
+      </form>
+      <form id="rep-signin-form" class="contact-form" method="post" novalidate hidden>
+        <div class="form-field">
+          <label for="signin-email">Email</label>
+          <input id="signin-email" name="email" type="email" maxlength="254" autocomplete="email" required>
+        </div>
+        <div class="form-field">
+          <label for="signin-password">Password</label>
+          <input id="signin-password" name="password" type="password" maxlength="128" autocomplete="current-password" required>
+        </div>
+        <div id="signin-join" class="rep-step" hidden>
+          <div class="form-field">
+            <label class="rep-check" for="signin-accept"><input id="signin-accept" type="checkbox"> <span>I accept the <a href="/rep-terms.html">rep terms</a></span></label>
+          </div>
+          <button id="signin-join-btn" class="btn" type="button">Join with this account</button>
+        </div>
+        <button id="signin-submit" class="btn" type="submit">Sign in</button>
+        <p class="rep-hint"><button id="rep-to-forgot" class="rep-link" type="button">Forgot password?</button></p>
+        <p id="signin-status" class="form-status" role="status"></p>
+      </form>
+      <form id="rep-forgot-form" class="contact-form" method="post" novalidate hidden>
+        <p class="rep-hint">Enter your email and we will send you a 6-digit code to set a new password. This is the same password as in the KwalaNotes app.</p>
+        <div class="form-field">
+          <label for="forgot-email">Email</label>
+          <input id="forgot-email" name="email" type="email" maxlength="254" autocomplete="email" required>
+        </div>
+        <div id="forgot-step-code" class="rep-step" hidden>
+          <div class="form-field">
+            <label for="forgot-code">6-digit code</label>
+            <input id="forgot-code" name="code" type="text" inputmode="numeric" maxlength="6" autocomplete="one-time-code">
+          </div>
+          <div class="form-field">
+            <label for="forgot-password">New password</label>
+            <input id="forgot-password" name="password" type="password" maxlength="128" autocomplete="new-password">
+          </div>
+        </div>
+        <button id="forgot-submit" class="btn" type="submit">Send me a code</button>
+        <p class="rep-hint"><button id="forgot-back" class="rep-link" type="button">Back to sign in</button></p>
+        <p id="forgot-status" class="form-status" role="status"></p>
       </form>
     </article>
   </div>
