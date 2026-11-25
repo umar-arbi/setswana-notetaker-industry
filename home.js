@@ -129,13 +129,6 @@
     hrs.addEventListener('input',price);price();
   })();
 
-  /* copy the trial code */
-  $$('[data-copy]').forEach(function(b){
-    b.addEventListener('click',function(){
-      var done=function(ok){b.textContent=ok?'Copied':'Code: '+b.dataset.copy;setTimeout(function(){b.textContent='Copy';},2000);};
-      try{navigator.clipboard.writeText(b.dataset.copy).then(function(){done(true);},function(){done(false);});}catch(e){done(false);}
-    });
-  });
 
   /* the headline switches language, the way a meeting does */
   var h1=$('#h1'),flip=$('#flip'),autoLang=!calm;

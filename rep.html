@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Become a rep — KwalaNotes</title>
+  <meta name="description" content="Earn commission by referring customers to KwalaNotes.">
+  <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#4A90C8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self' https://umar-arbi--setswana-notetaker-web.us-east.modal.run; base-uri 'self'; form-action 'self'; frame-ancestors 'none'">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/styles.css">
+  <script src="/rep.js" defer></script>
+</head>
+<body class="rep">
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="top"><div class="wrap"><a class="brand" href="/index.html" aria-label="KwalaNotes home"><svg aria-hidden="true" width="34" height="26" viewBox="0 0 32 24" fill="#4A90C8"><rect x="0" y="7" width="3" height="10" rx="1.5"></rect><rect x="5" y="1" width="3" height="22" rx="1.5"></rect><rect x="10" y="4" width="3" height="16" rx="1.5"></rect><rect x="15" y="7" width="3" height="10" rx="1.5"></rect><rect x="20" y="9.5" width="3" height="5" rx="1.5"></rect><rect x="25" y="10.5" width="7" height="3" rx="1.5"></rect></svg><span><b>kwala</b>notes</span></a><nav class="nav" aria-label="Main"><a href="/index.html">Home</a><a href="/faq.html">FAQ</a><a href="/help.html">Help</a><a href="/privacy.html">Privacy</a><a href="/terms.html">Terms</a></nav><a class="btn" href="https://apps.microsoft.com/detail/9MWMGF2BBXBX">Download</a></div></header>
+<main id="main">
+  <div class="head cloth"><div class="wrap"><div class="panel"><h1>Earn with KwalaNotes</h1></div></div></div>
+  <div class="wrap body one">
+    <article>
+      <p class="section-intro">Earn commission when your customers subscribe to KwalaNotes.</p>
+      <ol class="rep-steps">
+        <li>Enter your email and we will send you a personal code.</li>
+        <li>Your customer enters the code in the app before paying and subscribes within one hour.</li>
+        <li>You earn P20 for each Standard and P10 for each Starter first payment, once per customer. We pay every Saturday by bank transfer for payments made before Saturday 00:00 Botswana time.</li>
+      </ol>
+      <form id="rep-form" class="contact-form" method="post" novalidate>
+        <div class="form-field">
+          <label for="rep-email">Email</label>
+          <input id="rep-email" name="email" type="email" maxlength="254" autocomplete="email" required>
+          <p class="rep-hint">Already a rep? Enter your email again to sign in.</p>
+        </div>
+        <button id="rep-send" class="btn" type="submit">Send me a code</button>
+        <div id="rep-step-code" class="rep-step" hidden>
+          <div class="form-field">
+            <label for="rep-code">6-digit code</label>
+            <input id="rep-code" name="code" type="text" inputmode="numeric" maxlength="6" autocomplete="one-time-code" required>
+          </div>
+          <div class="form-field">
+            <label class="rep-check" for="rep-accept"><input id="rep-accept" type="checkbox"> <span>I accept the <a href="/rep-terms.html">rep terms</a></span></label>
+          </div>
+          <button id="rep-verify" class="btn" type="submit">Continue</button>
+          <button id="rep-resend" class="btn ghost rep-resend" type="button">Send a new code</button>
+        </div>
+        <p id="rep-status" class="form-status" role="status"></p>
+      </form>
+    </article>
+  </div>
+</main>
+<footer><div class="wrap"><span>© 2026 KwalaNotes. All rights reserved.</span><nav aria-label="Footer"><a href="/index.html#contact">Contact</a><a href="/privacy.html">Privacy</a><a href="/terms.html">Terms</a><a href="/help.html">Help</a></nav></div></footer>
+</body>
+</html>

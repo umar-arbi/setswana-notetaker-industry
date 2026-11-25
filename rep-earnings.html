@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Rep earnings — KwalaNotes</title>
+  <meta name="description" content="Your KwalaNotes rep earnings and bank details.">
+  <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#4A90C8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self' https://umar-arbi--setswana-notetaker-web.us-east.modal.run; base-uri 'self'; form-action 'self'; frame-ancestors 'none'">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/styles.css">
+  <script src="/rep.js" defer></script>
+</head>
+<body class="rep">
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="top"><div class="wrap"><a class="brand" href="/index.html" aria-label="KwalaNotes home"><svg aria-hidden="true" width="34" height="26" viewBox="0 0 32 24" fill="#4A90C8"><rect x="0" y="7" width="3" height="10" rx="1.5"></rect><rect x="5" y="1" width="3" height="22" rx="1.5"></rect><rect x="10" y="4" width="3" height="16" rx="1.5"></rect><rect x="15" y="7" width="3" height="10" rx="1.5"></rect><rect x="20" y="9.5" width="3" height="5" rx="1.5"></rect><rect x="25" y="10.5" width="7" height="3" rx="1.5"></rect></svg><span><b>kwala</b>notes</span></a><nav class="nav" aria-label="Main"><a href="/index.html">Home</a><a href="/faq.html">FAQ</a><a href="/help.html">Help</a><a href="/privacy.html">Privacy</a><a href="/terms.html">Terms</a></nav><a class="btn" href="https://apps.microsoft.com/detail/9MWMGF2BBXBX">Download</a></div></header>
+<main id="main">
+  <div class="head cloth"><div class="wrap"><div class="panel"><h1>Your rep earnings</h1></div></div></div>
+  <div class="wrap body one">
+    <article>
+      <section class="rep-figures" aria-label="Your earnings">
+        <p class="rep-figures-label">Your code</p>
+        <p class="rep-code"><span id="rep-code-value">—</span></p>
+        <dl>
+          <div><dt>Customers</dt><dd id="rep-customers">—</dd></div>
+          <div><dt>Pending</dt><dd id="rep-pending">—</dd></div>
+          <div><dt>Ready for Saturday</dt><dd id="rep-ready">—</dd></div>
+          <div><dt>Paid</dt><dd id="rep-paid">—</dd></div>
+        </dl>
+      </section>
+      <h2>Bank details</h2>
+      <p class="rep-hint">We pay your commission to this account every Saturday.</p>
+      <p id="bank-masked" class="rep-bank-saved">—</p>
+      <form id="bank-form" class="contact-form" method="post" novalidate>
+        <div class="form-field">
+          <label for="bank-holder">Account holder</label>
+          <input id="bank-holder" name="holder" type="text" maxlength="80">
+        </div>
+        <div class="form-field">
+          <label for="bank-name">Bank</label>
+          <input id="bank-name" name="bank" type="text" maxlength="60">
+        </div>
+        <div class="form-field">
+          <label for="bank-account">Account number</label>
+          <input id="bank-account" name="account" type="text" inputmode="numeric" maxlength="30" autocomplete="off">
+        </div>
+        <div class="form-field">
+          <label for="bank-branch">Branch code</label>
+          <input id="bank-branch" name="branch" type="text" maxlength="20">
+        </div>
+        <button id="bank-save" class="btn" type="submit">Save bank details</button>
+        <p id="bank-status" class="form-status" role="status"></p>
+      </form>
+      <p class="rep-links"><a href="/rep-terms.html">Rep terms</a></p>
+      <p><button id="rep-signout" class="btn ghost" type="button">Sign out</button></p>
+    </article>
+  </div>
+</main>
+<footer><div class="wrap"><span>© 2026 KwalaNotes. All rights reserved.</span><nav aria-label="Footer"><a href="/index.html#contact">Contact</a><a href="/privacy.html">Privacy</a><a href="/terms.html">Terms</a><a href="/help.html">Help</a></nav></div></footer>
+</body>
+</html>
