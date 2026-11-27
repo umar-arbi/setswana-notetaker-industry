@@ -2,7 +2,7 @@
 // Text is only ever written with textContent. No inline handlers, no HTML strings.
 (() => {
   const SERVER_URL = "https://umar-arbi--setswana-notetaker-web.us-east.modal.run";
-  const TERMS_VERSION = "2026-11-26";
+  const TERMS_VERSION = "2026-11-27";
   const TOKEN_KEY = "kn_rep_token";
   const $ = (id) => document.getElementById(id);
 
@@ -303,8 +303,27 @@
         return;
       }
       const me = result.body;
+      const count = (value) => {
+        const n = Number(value);
+        return Number.isFinite(n) ? n : 0;
+      };
+      const hasSplitCounts =
+        me.free_hour_customers !== null &&
+        me.free_hour_customers !== undefined &&
+        me.paying_customers !== null &&
+        me.paying_customers !== undefined;
+      if (hasSplitCounts) {
+        say(
+          $("rep-customers"),
+          "Free hour: " +
+            count(me.free_hour_customers) +
+            " · Paying: " +
+            count(me.paying_customers)
+        );
+      } else {
+        say($("rep-customers"), String(count(me.customers)));
+      }
       say($("rep-code-value"), typeof me.code === "string" ? me.code : "");
-      say($("rep-customers"), String(Number.isFinite(Number(me.customers)) ? Number(me.customers) : 0));
       say($("rep-pending"), pula(me.pending_pula));
       say($("rep-ready"), pula(me.ready_pula));
       say($("rep-paid"), pula(me.paid_pula));
